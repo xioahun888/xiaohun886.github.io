@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/buble.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-toc@1.1.0/dist/toc.min.css">
+</head>
+<body>
+<nav>
+    <a href="javascript:toLocaleUrl('zh-cn');">中文简体</a>
+    <!--    <a href="#">繁体</a>-->
+    <a href="javascript:toLocaleUrl('en');">EN</a>
+</nav>
+<div id="app"></div>
+<script src="assets/base.js"></script>
+<script>
+    function toLocaleUrl(locale) {
+        // console.log(Utils.getLocaleUrl(locale))
+        let localeUrl = Utils.getLocaleUrl(locale);
+        // console.log(localeUrl)
+        window.location.href = localeUrl;
+    }
+    let $docsify = Object.assign(defaltDocsify, localeDocsify[Utils.getLocaleOnDefault()]);
+    // console.log($docsify)
+    window.$docsify = $docsify;
+    // 跳转首页
+    if (!window.location.hash) {
+        let url = new URL(window.location.href);
+        url.hash = '#' + HOME_PAGE;
+        // console.log(url)
+        window.location.href = url.toString();
+    }
+</script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+<!--<script src="//cdn.jsdelivr.net/npm/docsify-toc@1.1.0/dist/toc.min.js"></script>-->
+
+</body>
+</html>
